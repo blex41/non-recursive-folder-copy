@@ -31,6 +31,7 @@ class CopyManager {
    * @param {String} downloadPath
    */
   async _copyFolderAux(remotePath, downloadPath) {
+    await fs.mkdir(downloadPath);
     const list = await this.listEntries(remotePath);
     for (const fileInfo of list) {
       if (fileInfo.isDirectory) {
